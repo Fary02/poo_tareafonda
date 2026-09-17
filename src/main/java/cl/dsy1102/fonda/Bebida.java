@@ -105,11 +105,11 @@ public abstract class Bebida {
 
   }
 
-  // Definimos toString siguiendo el diagrama (sin tener claro para que)
+  // Definimos toString debe incluir únicamente el nombre y el volumen de la bebida
 
   public String toString() {
 
-    return this.nombre + this.detalle + this.stock + this.precio;
+    return this.nombre + this.volumenML;
 
   }
 
