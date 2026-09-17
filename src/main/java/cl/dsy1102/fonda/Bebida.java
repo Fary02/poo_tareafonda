@@ -15,7 +15,7 @@ public abstract class Bebida {
 
   // Constructor method
 
-  public Bebida (String nombre, int volumenML, int stock, double precio, String detalle) {
+  public Bebida(String nombre, int volumenML, int stock, double precio, String detalle) {
 
     this.nombre = nombre;
     this.volumenML = volumenML;
@@ -31,13 +31,13 @@ public abstract class Bebida {
     SETTERS lleva parametro, solo va set"nombre V." sin el tipo, asignan valor con this y van con void
    */
 
-  public String getNombre(){
+  public String getNombre() {
 
     return nombre;
 
   }
 
-  public void setNombre(String nombre){
+  public void setNombre(String nombre) {
 
     this.nombre = nombre;
 
@@ -49,7 +49,7 @@ public abstract class Bebida {
 
   }
 
-  public void setVolumenML(int volumenML ) {
+  public void setVolumenML(int volumenML) {
 
     this.volumenML = volumenML;
 
@@ -93,13 +93,13 @@ public abstract class Bebida {
 
   // Definimos atributos / methods compartidos
 
-  public void calcularPrecio(){
+  public void calcularPrecio() {
 
     System.out.println("El precio es de: " + precio);
 
   }
 
-  public void obtenerDetalle(){
+  public void obtenerDetalle() {
 
     System.out.println("La bebida: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " disponibles");
 
@@ -107,7 +107,7 @@ public abstract class Bebida {
 
   // Definimos toString siguiendo el diagrama (sin tener claro para que)
 
-  public String toString () {
+  public String toString() {
 
     return this.nombre + this.detalle + this.stock + this.precio;
 
