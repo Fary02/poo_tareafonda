@@ -2,7 +2,7 @@ package cl.dsy1102.fonda;
 
 // Creacion clase hija, con su implementacion y herencia con extends y super
 
-public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
+public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
   // aca definimos los atributos en mi opinion en privado, ya que son unicos de la clase como tal
 
@@ -13,7 +13,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
 
   // Al constructor se le agrega el super y atributos de la clase padre;
 
-  public BebidaAlcoholica(String nombre, int volumenML, int stock, double precio, String detalle, int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
+  public BebidaAlcoholica(String nombre, int volumenML, int stock, double precio, String detalle, int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificada, boolean ventaRestringida) {
 
     //Implementacion de super()
 
@@ -70,7 +70,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
 
   @Override
 
-  public void calcularPrecio(){
+  public void calcularPrecio() {
 
     System.out.println("El precio de la bebida Alcoholica es: " + precio);
 
@@ -78,7 +78,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
 
   @Override
 
-  public void obtenerDetalle(){
+  public void obtenerDetalle() {
 
     System.out.println("La bebida alcoholica: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " disponibles");
 
@@ -94,15 +94,13 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
 
   @Override
 
-  public void superaLimite(int unidades){
+  public void superaLimite(int unidades) {
 
-    if (limiteUnidadesPorCliente >= 3){
+    if (limiteUnidadesPorCliente >= 3) {
 
       System.out.println("La cantidad seleccionada: " + unidades + " supera el limite por cliente");
 
-    }
-
-    else
+    } else
 
       System.out.println("La cantidad: " + unidades + " no supera el limite por cliente");
 
@@ -111,7 +109,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
 
   @Override
 
-  public void restringirVenta(){
+  public void restringirVenta() {
 
     System.out.println("La bebida: " + this.nombre + " no puede ser vendida");
 

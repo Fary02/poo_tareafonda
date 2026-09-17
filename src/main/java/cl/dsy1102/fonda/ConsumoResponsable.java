@@ -9,7 +9,9 @@ public interface ConsumoResponsable {
   // Aca no me queda claro si debo definirles un parametro boolean, o si despues se hara
 
   void tieneVentaRestringida();
+
   void restringirVenta();
+
   void superaLimite(int unidades);
 
 }
