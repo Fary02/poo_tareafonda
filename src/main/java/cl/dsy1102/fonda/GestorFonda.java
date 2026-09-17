@@ -25,7 +25,7 @@ public class GestorFonda {
 
   public Bebida crearBebida(String nombre, int volumenML, int stock, double precio, String detalle) {
 
-    // Una clase abstracta no se puede inicializar, por lo que creare una idetica, pero no abstracta
+    // Una clase abstracta no se puede inicializar, por lo que creare una identica, pero no abstracta
 
     Bebida nuevaBebida = new BebidaGestor(nombre, volumenML, stock, precio, detalle);
 
@@ -58,7 +58,7 @@ public class GestorFonda {
 
   // UPDATE
 
-  public void actualizarBebidad(String nombre, int volumenML, int stock, double precio, String detalle, String nuevoNombre, int nuevoVolumenML, int nuevoStock, double nuevoPrecio, String nuevoDetalle) {
+  public void actualizarBebidas(String nombre, int volumenML, int stock, double precio, String detalle, String nuevoNombre, int nuevoVolumenML, int nuevoStock, double nuevoPrecio, String nuevoDetalle) {
 
     Bebida bebida = obtenerBebidas(nombre);
 
