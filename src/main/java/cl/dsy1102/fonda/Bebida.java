@@ -101,7 +101,7 @@ public abstract class Bebida {
 
   public void obtenerDetalle() {
 
-    System.out.println("La bebida: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " disponibles");
+    System.out.println("La bebida: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " unidades disponibles");
 
   }
 

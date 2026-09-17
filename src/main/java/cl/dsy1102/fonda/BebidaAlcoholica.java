@@ -4,7 +4,7 @@ package cl.dsy1102.fonda;
 
 public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
-  // aca definimos los atributos en mi opinion en privado, ya que son unicos de la clase como tal
+  // aca definimos los atributos en mi opinion en privado (Acepto correcion), ya que son unicos de la clase como tal
 
   public int limiteUnidadesPorCliente;
   public double gradosAlcohol;
@@ -80,7 +80,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
   public void obtenerDetalle() {
 
-    System.out.println("La bebida alcoholica: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " disponibles");
+    System.out.println("La bebida alcoholica: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " unidades disponibles");
 
   }
 
