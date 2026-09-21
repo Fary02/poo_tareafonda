@@ -36,18 +36,16 @@ public class BebidaSinAlcohol extends Bebida {
   // Methods de clase padre con @OVERRIDE
 
   @Override
-
   public void calcularPrecio() {
 
-    System.out.println("El precio de la bebida sin alcohol es de: " + precio);
+    System.out.println("El precio de la bebida sin alcohol es de: " + this.precio);
 
   }
 
   @Override
-
   public void obtenerDetalle() {
 
-    System.out.println("La bebida sin alcohol: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " unidades disponibles");
+    System.out.println("La bebida sin alcohol: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
 
   }
 
