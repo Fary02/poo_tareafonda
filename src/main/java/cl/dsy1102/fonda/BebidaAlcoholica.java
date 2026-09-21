@@ -66,34 +66,41 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
   }
 
+  public boolean getVentaRestrigida(){
+
+    return ventaRestringida;
+
+  }
+
+  public void setVentaRestringida(boolean ventaRestringida) {
+
+    this.ventaRestringida = ventaRestringida;
+  }
+
   // Implementacion de methods de clase padre, SOLO los de interface con @OVERRIDE (Se aceptan correciones)
 
   @Override
-
   public void calcularPrecio() {
 
-    System.out.println("El precio de la bebida Alcoholica es: " + precio);
+    System.out.println("El precio de la bebida Alcoholica es: " + this.precio);
 
   }
 
   @Override
-
   public void obtenerDetalle() {
 
-    System.out.println("La bebida alcoholica: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " unidades disponibles");
+    System.out.println("La bebida alcoholica: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
 
   }
 
   @Override
-
   public void tieneVentaRestringida() {
 
-    System.out.println("¿La bebida alcoholica tiene restriccion?: " + ventaRestringida);
+    System.out.println("¿La bebida alcoholica tiene restriccion?: " + this.ventaRestringida);
 
   }
 
   @Override
-
   public void superaLimite(int unidades) {
 
     if (limiteUnidadesPorCliente >= 3) {
@@ -108,7 +115,6 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
   }
 
   @Override
-
   public void restringirVenta() {
 
     System.out.println("La bebida: " + this.nombre + " no puede ser vendida");
