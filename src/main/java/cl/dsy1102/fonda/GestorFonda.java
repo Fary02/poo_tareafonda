@@ -23,7 +23,7 @@ public class GestorFonda {
 
 // Create
 
-  public Bebida crearBebida(String nombre, int volumenML, int stock, double precio, String detalle) {
+  public Bebida crearBebida (String nombre, int volumenML, int stock, double precio, String detalle) {
 
     // Una clase abstracta no se puede inicializar, por lo que creare una identica, pero no abstracta
 
