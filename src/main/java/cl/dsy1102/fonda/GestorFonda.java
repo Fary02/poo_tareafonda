@@ -88,7 +88,7 @@ public class GestorFonda {
 
       bebida.remove(bebidas);
 
-      System.out.println("Bebida: " + nombre + " y toda su informacion vinculada a sido eliminada");
+      System.out.println("Bebida:" + nombre + " y toda su informacion vinculada a sido eliminada");
 
     }
 
