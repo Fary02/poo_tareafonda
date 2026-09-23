@@ -13,7 +13,7 @@ public class Main {
 
     // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
 
-    // Se instancia cada objeto solicitado (Existe otro metodo que segun se iplementa mejor)
+    // Se instancia cada objeto solicitado (Existe otro metodo que segun yo se incorpora mejor)
 
     Bebida chicha = new BebidaAlcoholica("Chicha", 1000, 40, 5000, "una rica chica a base de uva", 2, 12.0, false, true);
     Bebida piscoSour = new BebidaAlcoholica("Pisco Sour", 500, 25, 2500, "un rico pisco sour", 2, 18.0, true, false);
