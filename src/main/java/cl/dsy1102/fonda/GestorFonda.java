@@ -5,92 +5,58 @@ package cl.dsy1102.fonda;
 import java.util.ArrayList;
 import java.util.List;
 
-// Clase hija que gestionara el CRUD
+// Clase con el rol de GESTOR
 
 public class GestorFonda {
 
   // Se importa la clase PADRE Bebida como atributo
 
-  public List<Bebida> bebida;
+  public List<Bebida> bebidas;
 
   // Constuctor method con method List
 
   public GestorFonda() {
 
-    this.bebida = new ArrayList<>();
+    this.bebidas = new ArrayList<>();
 
   }
 
-// Create
+// Registrar / Create
 
-  public Bebida crearBebida (String nombre, int volumenML, int stock, double precio, String detalle) {
+  public void registrarBebida(Bebida bebida) {
 
-    // Una clase abstracta no se puede inicializar, por lo que creare una identica, pero no abstracta
-
-    Bebida nuevaBebida = new BebidaGestor(nombre, volumenML, stock, precio, detalle);
-
-    bebida.add(nuevaBebida);
-
-    System.out.println("Bebida" + nombre + " a sido creada exitosamente.");
-
-    return nuevaBebida;
+    bebidas.add(bebida);
 
   }
 
-  // READ
+  // Buscar / Read
 
-  public Bebida obtenerBebidas(String nombre) {
+  public List<Bebida> buscarPorNombre(String nombre) {
 
-    for (Bebida bebida : bebida) {
+    ArrayList<Bebida> nombreBebida = new ArrayList<>();
+    for (Bebida bebida : bebidas) {
 
       if (bebida.getNombre().equalsIgnoreCase(nombre)) {
 
-        return bebida;
+        nombreBebida.add(bebida);
 
       }
     }
+    return nombreBebida;
+  }
 
-    System.out.println("Bebida no encontrada");
+  // Vender / UPDATE (FALTA INCORPORAR)
 
-    return null;
+  public void venderBebida(String nombre, int stock) {
+
 
   }
 
-  // UPDATE
+  // ObtenerTodas / Delete
 
-  public void actualizarBebidas(String nombre, int volumenML, int stock, double precio, String detalle, String nuevoNombre, int nuevoVolumenML, int nuevoStock, double nuevoPrecio, String nuevoDetalle) {
+  public List<Bebida> obtenerTodas() {
 
-    Bebida bebida = obtenerBebidas(nombre);
-
-    if (bebida != null) {
-
-      bebida.setNombre(nuevoNombre);
-      bebida.setVolumenML(nuevoVolumenML);
-      bebida.setStock(nuevoStock);
-      bebida.setPrecio(nuevoPrecio);
-      bebida.setDetalle(nuevoDetalle);
-
-      System.out.println("Bebida actualizada correctamente");
-
-    }
-
-  }
-
-  // DELETE
-
-  public void eliminarBebida(String nombre) {
-
-    Bebida bebidas = obtenerBebidas(nombre);
-
-    if (bebidas != null) {
-
-      /* En teoria borra la bebida y todo lo que esta relacionado a ella */
-
-      bebida.remove(bebidas);
-
-      System.out.println("Bebida:" + nombre + " y toda su informacion vinculada a sido eliminada");
-
-    }
+    return bebidas;
 
   }
 
