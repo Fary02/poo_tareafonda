@@ -6,7 +6,7 @@ package cl.dsy1102.fonda;
 
 public interface ConsumoResponsable {
 
-  // Aca no me queda claro si debo definirles un parametro boolean, o si despues se hara
+  // Aca no me queda claro si debo definirles un parametro boolean, o si despues se hara CONSULTAR
 
   void tieneVentaRestringida();
 
