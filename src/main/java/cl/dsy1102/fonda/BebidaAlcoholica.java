@@ -6,10 +6,10 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
   // aca definimos los atributos en mi opinion en privado (Acepto correcion), ya que son unicos de la clase como tal
 
-  public int limiteUnidadesPorCliente;
-  public double gradosAlcohol;
-  public boolean certificada;
-  public boolean ventaRestringida;
+  private int limiteUnidadesPorCliente;
+  private double gradosAlcohol;
+  private boolean certificada;
+  private boolean ventaRestringida;
 
   // Al constructor se le agrega el super y atributos de la clase padre;
 

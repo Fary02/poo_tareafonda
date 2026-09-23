@@ -6,7 +6,7 @@ public class BebidaSinAlcohol extends Bebida {
 
   // Unico atributo unico de la clase hija
 
-  public int azucarPorLitro;
+  private int azucarPorLitro;
 
   // Constructor con atributos de la clase padre y super
 
