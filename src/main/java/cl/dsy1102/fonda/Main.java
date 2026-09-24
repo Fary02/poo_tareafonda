@@ -45,6 +45,9 @@ public class Main {
         // FALTA logica del SETTER stock
 
         gestorFonda.venderBebida(chicha.getNombre(),1);
+        gestorFonda.venderBebida(piscoSour.getNombre(),1);
+        gestorFonda.venderBebida(chichaSinAlcohol.getNombre(),1);
+        gestorFonda.venderBebida(moteConHuesillo.getNombre(),1);
 
         // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
 
