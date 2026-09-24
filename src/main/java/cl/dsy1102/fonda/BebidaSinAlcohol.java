@@ -4,49 +4,49 @@ package cl.dsy1102.fonda;
 
 public class BebidaSinAlcohol extends Bebida {
 
-  // Unico atributo unico de la clase hija
+    // Unico atributo unico de la clase hija
 
-  private int azucarPorLitro;
+    private int azucarPorLitro;
 
-  // Constructor con atributos de la clase padre y super
+    // Constructor con atributos de la clase padre y super
 
-  public BebidaSinAlcohol(String nombre, int volumenML, int stock, double precio, String detalle, int azucarPorLitro) {
+    public BebidaSinAlcohol(String nombre, int volumenML, int stock, double precio, String detalle, int azucarPorLitro) {
 
-    super(nombre, volumenML, stock, precio, detalle);
+        super(nombre, volumenML, stock, precio, detalle);
 
-    this.azucarPorLitro = azucarPorLitro;
+        this.azucarPorLitro = azucarPorLitro;
 
-  }
+    }
 
-  // GETTERS Y SETTERS
+    // GETTERS Y SETTERS
 
 
-  public int getAzucarPorLitro() {
+    public int getAzucarPorLitro() {
 
-    return azucarPorLitro;
+        return azucarPorLitro;
 
-  }
+    }
 
-  public void setAzucarPorlitro(int azucarPorLitro) {
+    public void setAzucarPorlitro(int azucarPorLitro) {
 
-    this.azucarPorLitro = azucarPorLitro;
+        this.azucarPorLitro = azucarPorLitro;
 
-  }
+    }
 
-  // Methods de clase padre con @OVERRIDE
+    // Methods de clase padre con @OVERRIDE
 
-  @Override
-  public void calcularPrecio() {
+    @Override
+    public void calcularPrecio() {
 
-    System.out.println("El precio de la bebida sin alcohol es de: " + this.precio);
+        System.out.println("El precio de la bebida sin alcohol es de: " + this.precio);
 
-  }
+    }
 
-  @Override
-  public void obtenerDetalle() {
+    @Override
+    public void obtenerDetalle() {
 
-    System.out.println("La bebida sin alcohol: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
+        System.out.println("La bebida sin alcohol: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
 
-  }
+    }
 
 }

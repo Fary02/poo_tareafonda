@@ -4,121 +4,120 @@ package cl.dsy1102.fonda;
 
 public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
-  // aca definimos los atributos en mi opinion en privado (Acepto correcion), ya que son unicos de la clase como tal
+    // aca definimos los atributos en mi opinion en privado (Acepto correcion), ya que son unicos de la clase como tal
 
-  private int limiteUnidadesPorCliente;
-  private double gradosAlcohol;
-  private boolean certificada;
-  private boolean ventaRestringida;
+    private int limiteUnidadesPorCliente;
+    private double gradosAlcohol;
+    private boolean certificada;
+    private boolean ventaRestringida;
 
-  // Al constructor se le agrega el super y atributos de la clase padre;
+    // Al constructor se le agrega el super y atributos de la clase padre;
 
-  public BebidaAlcoholica(String nombre, int volumenML, int stock, double precio, String detalle, int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificada, boolean ventaRestringida) {
+    public BebidaAlcoholica(String nombre, int volumenML, int stock, double precio, String detalle, int limiteUnidadesPorCliente, double gradosAlcohol, boolean certificada, boolean ventaRestringida) {
 
-    //Implementacion de super()
+        //Implementacion de super()
 
-    super(nombre, volumenML, stock, precio, detalle);
+        super(nombre, volumenML, stock, precio, detalle);
 
-    this.limiteUnidadesPorCliente = limiteUnidadesPorCliente;
-    this.gradosAlcohol = gradosAlcohol;
-    this.certificada = certificada;
-    this.ventaRestringida = ventaRestringida;
+        this.limiteUnidadesPorCliente = limiteUnidadesPorCliente;
+        this.gradosAlcohol = gradosAlcohol;
+        this.certificada = certificada;
+        this.ventaRestringida = ventaRestringida;
 
-  }
+    }
 
-  // GETTERS / SETTERS
+    // GETTERS / SETTERS
 
-  public int getLimiteUnidadesPorCliente() {
+    public int getLimiteUnidadesPorCliente() {
 
-    return limiteUnidadesPorCliente;
+        return limiteUnidadesPorCliente;
 
-  }
+    }
 
-  public void setLimiteUnidadesPorCliente(int limiteUnidadesPorCliente) {
+    public void setLimiteUnidadesPorCliente(int limiteUnidadesPorCliente) {
 
-    this.limiteUnidadesPorCliente = limiteUnidadesPorCliente;
+        this.limiteUnidadesPorCliente = limiteUnidadesPorCliente;
 
-  }
+    }
 
-  public double getGradosAlcohol() {
+    public double getGradosAlcohol() {
 
-    return gradosAlcohol;
+        return gradosAlcohol;
 
-  }
+    }
 
-  public void setGradosAlcohol(double gradosAlcohol) {
+    public void setGradosAlcohol(double gradosAlcohol) {
 
-    this.gradosAlcohol = gradosAlcohol;
+        this.gradosAlcohol = gradosAlcohol;
 
-  }
+    }
 
-  // Aca se puede reemplazar el GET por cualquier valor mientras se respete su sintaxis, si no me equivoco lo mismo para SETT
+    // Aca se puede reemplazar el GET por cualquier valor mientras se respete su sintaxis, si no me equivoco lo mismo para SETT
 
-  public boolean isCertificada() {
+    public boolean isCertificada() {
 
-    return certificada;
+        return certificada;
 
-  }
+    }
 
-  public void setCertificada(boolean certificada) {
+    public void setCertificada(boolean certificada) {
 
-    this.certificada = certificada;
+        this.certificada = certificada;
 
-  }
+    }
 
-  public boolean getVentaRestrigida(){
+    public boolean getVentaRestrigida() {
 
-    return ventaRestringida;
+        return ventaRestringida;
 
-  }
+    }
 
-  public void setVentaRestringida(boolean ventaRestringida) {
+    public void setVentaRestringida(boolean ventaRestringida) {
 
-    this.ventaRestringida = ventaRestringida;
-  }
+        this.ventaRestringida = ventaRestringida;
+    }
 
-  // Implementacion de methods de clase padre, SOLO los de interface con @OVERRIDE (Se aceptan correciones)
+    // Implementacion de methods de clase padre, SOLO los de interface con @OVERRIDE (Se aceptan correciones)
 
-  @Override
-  public void calcularPrecio() {
+    @Override
+    public void calcularPrecio() {
 
-    System.out.println("El precio de la bebida Alcoholica es: " + this.precio);
+        System.out.println("El precio de la bebida Alcoholica es: " + this.precio);
 
-  }
+    }
 
-  @Override
-  public void obtenerDetalle() {
+    @Override
+    public void obtenerDetalle() {
 
-    System.out.println("La bebida alcoholica: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
+        System.out.println("La bebida alcoholica: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
 
-  }
+    }
 
-  @Override
-  public void tieneVentaRestringida() {
+    @Override
+    public void tieneVentaRestringida() {
 
-    System.out.println("¿La bebida alcoholica tiene restriccion?: " + this.ventaRestringida);
+        System.out.println("¿La bebida alcoholica tiene restriccion?: " + this.ventaRestringida);
 
-  }
+    }
 
-  @Override
-  public void superaLimite(int unidades) {
+    @Override
+    public void superaLimite(int unidades) {
 
-    if (limiteUnidadesPorCliente >= 3) {
+        if (limiteUnidadesPorCliente >= 3) {
 
-      System.out.println("La cantidad seleccionada: " + unidades + " supera el limite por cliente");
+            System.out.println("La cantidad seleccionada: " + unidades + " supera el limite por cliente");
 
-    } else
+        } else
 
-      System.out.println("La cantidad: " + unidades + " no supera el limite por cliente");
+            System.out.println("La cantidad: " + unidades + " no supera el limite por cliente");
 
+    }
 
-  }
+    @Override
+    public void restringirVenta() {
 
-  @Override
-  public void restringirVenta() {
+        System.out.println("La bebida: " + this.nombre + " no puede ser vendida");
 
-    System.out.println("La bebida: " + this.nombre + " no puede ser vendida");
-
-  }
+    }
 
 }
