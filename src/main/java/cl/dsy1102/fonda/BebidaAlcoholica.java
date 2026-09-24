@@ -94,7 +94,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
     }
 
     @Override
-    public void tieneVentaRestringida() {
+    public void tieneVentaRestringida(boolean restringida) {
 
         System.out.println("¿La bebida alcoholica tiene restriccion?: " + this.ventaRestringida);
 
