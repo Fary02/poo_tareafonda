@@ -5,113 +5,114 @@ package cl.dsy1102.fonda;
 
 public abstract class Bebida {
 
-  // Atributos en protected
+    // Atributos en protected
 
-  protected String nombre;
-  protected int volumenML;
-  protected int stock;
-  protected double precio;
-  protected String detalle;
+    protected String nombre;
+    protected int volumenML;
+    protected int stock;
+    protected double precio;
+    protected String detalle;
 
-  // Constructor method
+    // Constructor method
 
-  public Bebida(String nombre, int volumenML, int stock, double precio, String detalle) {
+    public Bebida(String nombre, int volumenML, int stock, double precio, String detalle) {
 
-    this.nombre = nombre;
-    this.volumenML = volumenML;
-    this.stock = stock;
-    this.precio = precio;
-    this.detalle = detalle;
+        this.nombre = nombre;
+        this.volumenML = volumenML;
+        this.stock = stock;
+        this.precio = precio;
+        this.detalle = detalle;
 
-  }
+    }
 
-  // GETTERS / SETTERS
+    // GETTERS / SETTERS
 
   /* GETTERS retornan valor
     SETTERS lleva parametro, solo va set"nombre V." sin el tipo, asignan valor con this y van con void
    */
 
-  public String getNombre() {
+    public String getNombre() {
 
-    return nombre;
+        return nombre;
 
-  }
+    }
 
-  public void setNombre(String nombre) {
+    public void setNombre(String nombre) {
 
-    this.nombre = nombre;
+        this.nombre = nombre;
 
-  }
+    }
 
-  public int getVolumenML() {
+    public int getVolumenML() {
 
-    return volumenML;
+        return volumenML;
 
-  }
+    }
 
-  public void setVolumenML(int volumenML) {
+    public void setVolumenML(int volumenML) {
 
-    this.volumenML = volumenML;
+        this.volumenML = volumenML;
 
-  }
+    }
 
-  public int getStock() {
+    public int getStock() {
 
-    return stock;
+        return stock;
 
-  }
+    }
 
-  public void setStock(int stock) {
+    public void setStock(int stock) {
 
-    this.stock = stock;
+        this.stock = stock;
 
-  }
+    }
 
-  public double getPrecio() {
+    public double getPrecio() {
 
-    return precio;
+        return precio;
 
-  }
+    }
 
-  public void setPrecio(double precio) {
+    public void setPrecio(double precio) {
 
-    this.precio = precio;
+        this.precio = precio;
 
-  }
+    }
 
-  public String getDetalle() {
+    public String getDetalle() {
 
-    return detalle;
+        return detalle;
 
-  }
+    }
 
-  public void setDetalle(String detalle) {
+    public void setDetalle(String detalle) {
 
-    this.detalle = detalle;
+        this.detalle = detalle;
 
-  }
+    }
 
-  // Definimos atributos / methods compartidos
+    // Definimos atributos / methods compartidos
 
-  public void calcularPrecio() {
+    public void calcularPrecio() {
 
-    System.out.println("El precio es de: " + precio);
+        System.out.println("El precio es de: " + this.precio);
 
-  }
+    }
 
-  public void obtenerDetalle() {
+    public void obtenerDetalle() {
 
-    System.out.println("La bebida: " + nombre + " tiene un valor de: " + precio + " y existe: " + stock + " unidades disponibles");
+        System.out.println("La bebida: " + this.nombre + " tiene un valor de: " + this.precio + " y existe: " + this.stock + " unidades disponibles");
 
-  }
+    }
 
-  // Definimos toString debe incluir únicamente el nombre y el volumen de la bebida
+    // Definimos toString debe incluir únicamente el nombre y el volumen de la bebida
 
-  public String toString() {
+    public String toString() {
 
-    return this.nombre + this.volumenML;
+        // Se formatea junto a cadenas de texto para darle formato a lo que retornara
 
-  }
+        return "Nombre: " + this.nombre + " | Volumen: " + this.volumenML;
 
+    }
 
 }
