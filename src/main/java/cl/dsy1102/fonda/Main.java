@@ -11,63 +11,97 @@ import java.util.List;
  */
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
+    // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
 
-        // Se instancia cada objeto solicitado (Existe otro metodo que segun yo se incorpora mejor)
+    // Se instancia cada objeto solicitado (Existe otro metodo que segun yo se incorpora mejor)
 
-        Bebida chicha = new BebidaAlcoholica("Chicha", 1000, 40, 5000, "una rica chica a base de uva", 2, 12.0, false, true);
-        Bebida piscoSour = new BebidaAlcoholica("Pisco Sour", 500, 25, 2500, "un rico pisco sour", 2, 18.0, true, false);
-        Bebida chichaSinAlcohol = new BebidaSinAlcohol("Chicha sin alchohol", 1000, 60, 1500, "chica en su version para niños", 95);
-        Bebida moteConHuesillo = new BebidaSinAlcohol("Mote con huesillo", 400, 50, 10000, "Lo mejor de la fonda, este mote con huesillo justifica su inversion", 70);
+    Bebida chicha = new BebidaAlcoholica("Chicha", 1000, 40, 4200, "una rica chica a base de uva", 3, 12.0, false, true);
+    Bebida piscoSour = new BebidaAlcoholica("Pisco Sour", 500, 25, 3500, "un rico pisco sour", 3, 18.0, true, false);
+    Bebida chichaSinAlcohol = new BebidaSinAlcohol("Chicha", 1000, 60, 2200, "chica en su version para niños", 95);
+    Bebida moteConHuesillo = new BebidaSinAlcohol("Mote con Huesillo", 400, 50, 2000, "Lo mejor de la fonda, este mote con huesillo justifica su inversion", 70);
 
+    // TODO 2: marcar la bebida alcoholica 'Chicha' con la venta restringida.
 
-        // TODO 2: marcar la bebida alcoholica 'Chicha' con la venta restringida.
+    // Se castea y restringe segun enunciado, tambien se puede ocupar un bucle for y dentro colocar instanceof
 
-        // Se castea y restringe segun enunciado, tambien se puede ocupar un bucle for y dentro colocar instanceof
+    System.out.println("--------------------------------------\n");
 
-        ((BebidaAlcoholica) chicha).restringirVenta();
+    System.out.println("=== LA BEBIDA CHICHA QUEDA RESTRINGIDA, TAMPOCO SE PUEDE VENDER ===\n");
 
-        // TODO 3: registrarlas todas en el gestor.
+    ((BebidaAlcoholica) chicha).restringirVenta();
 
-        // Se crea el objeto gestorFonda y se le pasa el objeto de la clase Bebida
+    System.out.println("--------------------------------------\n");
 
-        GestorFonda gestorFonda = new GestorFonda();
+    // TODO 3: registrarlas todas en el gestor.
 
-        gestorFonda.registrarBebida(chicha);
-        gestorFonda.registrarBebida(piscoSour);
-        gestorFonda.registrarBebida(chichaSinAlcohol);
-        gestorFonda.registrarBebida(moteConHuesillo);
+      System.out.println("=== REGISTRO DE BEBIDAS ===\n");
 
-        // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
+    // Se crea el objeto gestorFonda y se le pasa el objeto de la clase Bebida
 
-        // FALTA logica del SETTER stock
+    GestorFonda gestorFonda = new GestorFonda();
 
-        gestorFonda.venderBebida(chicha.getNombre(),1);
-        gestorFonda.venderBebida(piscoSour.getNombre(),1);
-        gestorFonda.venderBebida(chichaSinAlcohol.getNombre(),1);
-        gestorFonda.venderBebida(moteConHuesillo.getNombre(),1);
+    gestorFonda.registrarBebida(chicha);
+    gestorFonda.registrarBebida(piscoSour);
+    gestorFonda.registrarBebida(chichaSinAlcohol);
+    gestorFonda.registrarBebida(moteConHuesillo);
 
-        // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
+    // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
 
-        List<Bebida> resultadoBebidas = gestorFonda.buscarPorNombre("Chicha");
-        if (resultadoBebidas.isEmpty()) {
-            System.out.println("La bebida no existe en el catalogo");
-        } else {
-            System.out.println("La bebida existe en el catalogo: ");
-            for (Bebida bebida : resultadoBebidas) {
-                System.out.println(bebida.getNombre());
-            }
+    System.out.println("--------------------------------------\n");
+
+    System.out.println("=== BUSQUEDA POR NOMBRE: \"Chicha\" ===\n");
+
+    // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
+
+    List<Bebida> resultadoBebidas = gestorFonda.buscarPorNombre("Chicha");
+
+    if (resultadoBebidas.isEmpty()) {
+
+      System.out.println("La bebida no existe en el catalogo");
+
+    } else {
+
+      for (Bebida bebida : resultadoBebidas) {
+
+        if (bebida instanceof BebidaAlcoholica alcoholica) {
+
+          System.out.println("Tipo: Bebida Alcoholica" + " | Nombre: " + bebida.getNombre() + " | Volumen: " + bebida.getVolumenML() + " ml" + " | Stock: " + bebida.getStock() + " | Grados: " + alcoholica.getGradosAlcohol() + " | Certificada: " + (alcoholica.isCertificada() ? "Si" : "No"));
+
+          System.out.println("  Venta restringida: " + (alcoholica.getVentaRestrigida() ? "Si" : "No") + " | Precio: $" + Math.round(bebida.getPrecio()));
+
+        } else if (bebida instanceof BebidaSinAlcohol sinAlcohol) {
+
+          System.out.println("Tipo: Bebida Sin Alcohol" + " | Nombre: " + bebida.getNombre() + " | Volumen: " + bebida.getVolumenML() + " ml" + " | Stock: " + bebida.getStock() + " | Azucar: " + sinAlcohol.getAzucarPorLitro() + " g/L" + " | Precio: $" + Math.round(bebida.getPrecio()));
         }
 
-        List<Bebida> obtenerResultado = gestorFonda.obtenerTodas();
-
-        for (Bebida bebida : obtenerResultado) {
-
-            System.out.println("Bebida: " + bebida.getNombre());
-        }
-
-        System.out.println("Proyecto listo. Comienza por la clase Bebida.");
+        System.out.println("-----------------------------------------");
+      }
     }
+
+    // VENTAS
+
+    System.out.println("=== VENTAS ===\n");
+
+    gestorFonda.venderBebida(piscoSour.getNombre(), 2);
+    gestorFonda.venderBebida(piscoSour.getNombre(), 5);
+    gestorFonda.venderBebida(chicha.getNombre(), 1);
+    gestorFonda.venderBebida(moteConHuesillo.getNombre(), 6);
+
+    System.out.println("-----------------------------------------");
+
+    // LISTADO DE BEBIDAS
+
+    List<Bebida> obtenerResultado = gestorFonda.obtenerTodas();
+
+    System.out.println();
+    System.out.println("=== LISTADO DE BEBIDAS ===\n");
+
+    for (Bebida bebida : obtenerResultado) {
+
+      System.out.println(bebida.toString());
+      System.out.println("-----------------------------------------");
+    }
+  }
 }
