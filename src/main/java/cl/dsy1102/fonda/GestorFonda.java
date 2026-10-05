@@ -9,74 +9,122 @@ import java.util.List;
 
 public class GestorFonda {
 
-    // Se importa la clase PADRE Bebida como atributo
+  // Se importa la clase PADRE Bebida como atributo
 
-    public List<Bebida> bebidas;
+  public List<Bebida> bebidas;
 
-    // Constuctor method con method List
+  // Constuctor method con method List
 
-    public GestorFonda() {
+  public GestorFonda() {
 
-        this.bebidas = new ArrayList<>();
+    this.bebidas = new ArrayList<>();
 
+  }
+
+  // Registrar / Create
+
+  public void registrarBebida(Bebida bebida) {
+
+    bebidas.add(bebida);
+
+    // Se llama al metodo GET para obtener solo el nombre
+    // (de lo contrario, lanza todos los valores declarados en toString de la clase PADRE)
+
+    if (bebida instanceof BebidaAlcoholica) {
+
+      System.out.println(
+              bebida.getNombre() + " (BebidaAlcoholica) registrada correctamente.");
+
+    } else if (bebida instanceof BebidaSinAlcohol) {
+
+      System.out.println(
+              bebida.getNombre() + " (BebidaSinAlcohol) registrada correctamente.");
+    }
+  }
+
+  // Buscar / Read
+
+  public List<Bebida> buscarPorNombre(String nombre) {
+
+    ArrayList<Bebida> nombreBebida = new ArrayList<>();
+
+    for (Bebida bebida : bebidas) {
+
+      if (bebida.getNombre().equalsIgnoreCase(nombre)) {
+
+        nombreBebida.add(bebida);
+
+      }
     }
 
-// Registrar / Create
+    return nombreBebida;
+  }
 
-    public void registrarBebida(Bebida bebida) {
+  // Vender / UPDATE
 
-        bebidas.add(bebida);
+  public void venderBebida(String nombre, int stock) {
 
-        // Se llama al metodo GET para obtener solo el nombre (de lo contrario, lanza todos los valores declarados en toString de la clase PADRE)
+    // COLOCARLE A TODO THIS por si acaso */
 
-        System.out.println("Se registro la bebida: " + bebida.getNombre());
+    for (Bebida bebida : this.bebidas) {
 
-    }
+      if (bebida.getNombre().equalsIgnoreCase(nombre)) {
 
-    // Buscar / Read
+        // Primero verificamos si hay stock suficiente
 
-    public List<Bebida> buscarPorNombre(String nombre) {
+        if (bebida.getStock() < stock) {
 
-        ArrayList<Bebida> nombreBebida = new ArrayList<>();
-        for (Bebida bebida : bebidas) {
+          System.out.println("Venta rechazada: stock insuficiente.");
 
-            if (bebida.getNombre().equalsIgnoreCase(nombre)) {
-
-                nombreBebida.add(bebida);
-
-            }
+          return;
         }
 
-        return nombreBebida;
-    }
+        // Si la bebida es alcoholica
+        if (bebida instanceof BebidaAlcoholica) {
 
-    // Vender / UPDATE
+          BebidaAlcoholica alcoholica = (BebidaAlcoholica) bebida;
 
-    public void venderBebida(String nombre, int stock) {
+          // Verificar si la venta esta restringida
 
-        // COLOCARLE A TODO THIS por si acaso
+          if (alcoholica.getVentaRestrigida()) {System.out.println("Venta rechazada: " + bebida.getNombre() + " tiene la venta restringida.");
 
-        for (Bebida bebida : this.bebidas) {
-            if (bebida.getNombre().equalsIgnoreCase(nombre)) {
-                if (bebida.getStock() > stock) {
-                    try{
-                        bebida.setStock(bebida.getStock() - stock);
-                        System.out.println("Se vende la bebida: " + bebida.getNombre());
-                    }catch(Exception errorStock){
-                        System.out.println("Error al vender la bebida: " + errorStock.getMessage());
-                    }
-                }
-            }
+            return;
+          }
+
+          // Verificar limite por cliente
+
+          if (stock > alcoholica.getLimiteUnidadesPorCliente()) {
+
+            System.out.println("Venta rechazada: " + stock + " x " + bebida.getNombre() + " superan el limite de " + alcoholica.getLimiteUnidadesPorCliente() + " por cliente.");
+
+            return;
+          }
         }
 
+        try {
+
+          bebida.setStock(bebida.getStock() - stock);
+
+          double total = bebida.getPrecio() * stock;
+
+          System.out.println("Venta autorizada: " + stock + " x " + bebida.getNombre() + " | Total: $" + Math.round(total));
+
+        } catch (Exception errorStock) {
+
+          System.out.println("Error al vender la bebida: " + errorStock.getMessage());
+        }
+
+        return;
+      }
     }
 
-    // ObtenerTodas / Delete
+    System.out.println("Venta rechazada: " + nombre + " no existe en el catalogo.");
+  }
 
-    public List<Bebida> obtenerTodas() {
+  // ObtenerTodas / Delete
 
-        return bebidas;
+  public List<Bebida> obtenerTodas() {
 
-    }
-
+    return bebidas;
+  }
 }
